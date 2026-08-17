@@ -44,7 +44,7 @@ browser.
   ESM build needs no bundling.
 - **Separate repo from AstroPlan**: different toolchain (JS vs. Swift/
   Python) and deploy lifecycle (GitHub Pages vs. Xcode archive/App Store).
-  Sibling directory to `AstroPlan` and `astroplan-docs` on disk.
+  Sibling directory to `AstroPlan` and `astrotonight-docs` on disk.
 
 ## Structure
 
@@ -52,7 +52,7 @@ browser.
 index.html                 entry point
 targets.html                static reference list of every tracked target
 about.html                  attributions, calculations, privacy — static, no JS
-css/style.css               matches astroplan-docs' palette/type
+css/style.css               matches astrotonight-docs' palette/type
 js/
   main.js                   orchestration: geolocation -> data -> rank -> render
   geolocation.js            Promise wrapper over navigator.geolocation
@@ -97,7 +97,7 @@ names instead, alongside its existing "Question Mark Nebula".
 ## Deploy
 
 Commit `.nojekyll` (done). Repo Settings → Pages → Deploy from a branch →
-`main` / `/ (root)`. Serves at `https://mikep63.github.io/astroplan-tonight/`
+`main` / `/ (root)`. Serves at `https://mikep63.github.io/astrotonight-web/`
 over HTTPS (required for `navigator.geolocation`).
 
 ## Remaining before calling this done
