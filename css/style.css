@@ -276,3 +276,9 @@ a {
     border-top-color: rgba(120, 120, 128, 0.24);
   }
 }
+
+/* Name, what this build is, who owns it -- the order an About box has used
+   since long before any of this, and the same three lines on every one of
+   these sites. */
+.colophon { line-height: 1.5; margin-bottom: .7rem; font-size: .8rem; }
+.colophon strong { font-size: .9rem; }
