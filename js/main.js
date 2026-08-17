@@ -35,7 +35,7 @@ async function run() {
   } catch (err) {
     renderError(
       root,
-      "AstroPlan Tonight needs your location to compute which targets are up tonight. " +
+      "AstroTonight Tonight needs your location to compute which targets are up tonight. " +
         "Please allow location access and reload the page."
     );
     return;

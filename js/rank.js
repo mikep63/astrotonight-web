@@ -1,5 +1,5 @@
 // Fixed-default port of TonightView's recompute()/rank() pipeline
-// (AstroPlan/Views/TonightView.swift). No filter UI — this site shows a
+// (AstroTonight/Views/TonightView.swift). No filter UI — this site shows a
 // fixed Tonight state for the popular-targets list: min altitude 30°,
 // magnitude cap 11.0, popular-only (the export script already only emits
 // popular objects, so that filter is implicit), and transit within 2h of

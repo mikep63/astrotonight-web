@@ -1,5 +1,5 @@
 // Thin Promise wrapper over navigator.geolocation — the browser equivalent
-// of AstroPlan's LocationService/CoreLocation permission flow.
+// of AstroTonight's LocationService/CoreLocation permission flow.
 
 export function getPosition() {
   return new Promise((resolve, reject) => {

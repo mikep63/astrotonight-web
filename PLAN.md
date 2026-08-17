@@ -1,6 +1,6 @@
-# AstroPlan Tonight — web companion
+# AstroTonight Tonight — web companion
 
-A static GitHub Pages site mirroring the "Tonight" view from the AstroPlan
+A static GitHub Pages site mirroring the "Tonight" view from the AstroTonight
 iOS app: which *popular* deep-sky targets are up tonight from the visitor's
 location. No backend, no accounts — everything computes client-side in the
 browser.
@@ -9,7 +9,7 @@ browser.
 
 ## Scope
 
-- **Popular targets only** — the 96-object curated set from AstroPlan's
+- **Popular targets only** — the 96-object curated set from AstroTonight's
   `popularity.json`, not the full ~13,800-object catalog.
 - **Fixed default filters** — mirrors the app's Tonight defaults: 30° minimum
   altitude during darkness, magnitude cap 11.0, transit within 2h of
@@ -30,7 +30,7 @@ browser.
 ## Decisions
 
 - **Astronomy math**: fixed-RA/Dec object math (`position`/`transit`/`peak`)
-  is hand-ported directly from `AstroPlan/Services/AltAzCalculator.swift` —
+  is hand-ported directly from `AstroTonight/Services/AltAzCalculator.swift` —
   simple enough (~20 lines) that a general-purpose ephemeris library adds
   nothing. Sun/Moon (real ephemeris work) uses
   [astronomy-engine](https://github.com/cosinekitty/astronomy) (Don Cross),
@@ -42,9 +42,9 @@ browser.
 - **No-build static site**: plain HTML/CSS/JS, native ES modules. This
   machine has no `node`/`npm`, and the astronomy library's zero-dependency
   ESM build needs no bundling.
-- **Separate repo from AstroPlan**: different toolchain (JS vs. Swift/
+- **Separate repo from AstroTonight**: different toolchain (JS vs. Swift/
   Python) and deploy lifecycle (GitHub Pages vs. Xcode archive/App Store).
-  Sibling directory to `AstroPlan` and `astrotonight-docs` on disk.
+  Sibling directory to `AstroTonight` and `astrotonight-docs` on disk.
 
 ## Structure
 
@@ -70,13 +70,13 @@ data/targets.json           generated — see below, not hand-edited
 
 ## Data pipeline
 
-`AstroPlan/Tools/export_tonight_data.py` (lives in the AstroPlan repo, not
+`AstroTonight/Tools/export_tonight_data.py` (lives in the AstroTonight repo, not
 here) generates `data/targets.json`. It re-implements
 `CatalogService.parseFile`/`mergeCrossReferences`/`applyPopularityIfNeeded`'s
 common-name promotion in Python, because `popularity.json` only stores raw
 pre-merge catalog names — whether an entry like a Sharpless number ends up
 standalone or absorbed into an NGC/IC object only happens at Swift runtime.
-Re-run it (`python3 Tools/export_tonight_data.py` from the AstroPlan repo)
+Re-run it (`python3 Tools/export_tonight_data.py` from the AstroTonight repo)
 whenever `popularity.json`, the catalog CSVs, or `CatalogLists.swift`'s
 cross-reference tables change, then commit the regenerated `data/targets.json`
 here.
@@ -107,7 +107,7 @@ over HTTPS (required for `navigator.geolocation`).
       card and target list render correctly. (No JS runtime was available
       in the environment that built this — the code has been audited for
       import/export correctness and the transit math independently
-      cross-checked against AstroPlan's own test suite values in Python,
+      cross-checked against AstroTonight's own test suite values in Python,
       but it has not actually been executed in a browser yet.)
 - [ ] Cross-check 2–3 targets' transit time/peak altitude against the app
       for the same location/date.
@@ -115,7 +115,7 @@ over HTTPS (required for `navigator.geolocation`).
 
 ## Source of truth
 
-The AstroPlan app repo remains authoritative for the actual popular-target
-list and common names (`AstroPlan/popularity.json`,
-`AstroPlan/Models/CatalogLists.swift`). This site is a read-only mirror of a
+The AstroTonight app repo remains authoritative for the actual popular-target
+list and common names (`AstroTonight/popularity.json`,
+`AstroTonight/Models/CatalogLists.swift`). This site is a read-only mirror of a
 slice of that data, not an independent editorial source.

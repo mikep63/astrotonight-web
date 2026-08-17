@@ -1,6 +1,6 @@
 // Sun/Moon: real ephemeris work, delegated to astronomy-engine rather than
-// hand-rolled. Wraps it to match the shape of AstroPlan's Sun/Moon/Twilight
-// enums (AstroPlan/Services/AltAzCalculator.swift) so rank.js/render.js can
+// hand-rolled. Wraps it to match the shape of AstroTonight's Sun/Moon/Twilight
+// enums (AstroTonight/Services/AltAzCalculator.swift) so rank.js/render.js can
 // consume it the same way the Swift Tonight view does.
 import * as Astronomy from "../vendor/astronomy.js";
 

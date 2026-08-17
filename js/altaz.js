@@ -1,5 +1,5 @@
 // Alt/Az geometry for a FIXED RA/Dec point (a catalog object — not a moving
-// body). Ported directly from AstroPlan's AstroPlan/Services/AltAzCalculator.swift
+// body). Ported directly from AstroTonight's AstroTonight/Services/AltAzCalculator.swift
 // (the `AltAz` enum) since this is ~20 lines of JD -> GMST -> LST -> hour
 // angle -> spherical trig with no sun/moon dependency — no library value-add
 // over a faithful port. Sun/Moon (real ephemeris work) live in sunmoon.js.
